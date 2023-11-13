@@ -1,6 +1,6 @@
 import { Logger, NotFoundException } from '@nestjs/common';
-import { FilterQuery, Model, Types, UpdateQuery } from 'mongoose';
 import { AbstractDocument } from './abstract.schema';
+import { FilterQuery, Model, Types, UpdateQuery } from 'mongoose';
 
 export abstract class AbstractRepository<TDocument extends AbstractDocument> {
   protected abstract readonly logger: Logger;
@@ -22,7 +22,6 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
       this.logger.warn('Document not found with filterQuery', filterQuery);
       throw new NotFoundException('Document not found.');
     }
-
     return document as TDocument;
   }
 
@@ -39,10 +38,8 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
       this.logger.warn('Document not found with filterQuery', filterQuery);
       throw new NotFoundException('Document not found.');
     }
-
     return document;
   }
-
   async find(filterQuery: FilterQuery<TDocument>) {
     return this.model.find(filterQuery, {}, { lean: true });
   }
