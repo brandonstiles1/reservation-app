@@ -1,18 +1,16 @@
-## Dev:
-FROM node:alpine AS development
+FROM node:alpine As development
 
 WORKDIR /usr/src/app
 
 COPY package.json ./
 COPY package-lock.json ./
 
-RUN npm install 
+RUN npm install
 
 COPY . .
 
 RUN npm run build
 
-## Prod:
 FROM node:alpine AS production
 
 ARG NODE_ENV=production
