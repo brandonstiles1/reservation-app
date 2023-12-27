@@ -8,6 +8,7 @@ import { Transport } from '@nestjs/microservices';
 
 async function bootstrap() {
   const app = await NestFactory.create(AuthModule);
+<<<<<<< HEAD
   const configService = app.get(ConfigService);
 
   app.connectMicroservice({
@@ -23,5 +24,12 @@ async function bootstrap() {
 
   await app.startAllMicroservices();
   await app.listen(configService.get('HTTP_PORT'));
+=======
+  app.use(cookieParser());
+  app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
+  app.useLogger(app.get(Logger));
+  const configService = app.get(ConfigService);
+  await app.listen(configService.get('PORT'));
+>>>>>>> 496605149c52120febe49bba1acbfcb5c97b97c1
 }
 bootstrap();

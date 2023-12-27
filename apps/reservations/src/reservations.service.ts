@@ -10,6 +10,7 @@ import { map } from 'rxjs';
 export class ReservationsService {
   constructor(
     private readonly reservationsRepository: ReservationsRepository,
+<<<<<<< HEAD
     @Inject(PAYMENTS_SERVICE) private readonly paymentsService: ClientProxy,
   ) {}
 
@@ -37,13 +38,38 @@ export class ReservationsService {
   }
 
   async update(_id: string, updateReservationDto: UpdateReservationDto) {
+=======
+  ) {}
+
+  create(createReservationDto: CreateReservationDto) {
+    return this.reservationsRepository.create({
+      ...createReservationDto,
+      timestamp: new Date(),
+      userId: '123',
+    });
+  }
+
+  findAll() {
+    return this.reservationsRepository.find({});
+  }
+
+  findOne(_id: string) {
+    return this.reservationsRepository.findOne({ _id });
+  }
+
+  update(_id: string, updateReservationDto: UpdateReservationDto) {
+>>>>>>> 496605149c52120febe49bba1acbfcb5c97b97c1
     return this.reservationsRepository.findOneAndUpdate(
       { _id },
       { $set: updateReservationDto },
     );
   }
 
+<<<<<<< HEAD
   async remove(_id: string) {
+=======
+  remove(_id: string) {
+>>>>>>> 496605149c52120febe49bba1acbfcb5c97b97c1
     return this.reservationsRepository.findOneAndDelete({ _id });
   }
 }

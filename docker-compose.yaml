@@ -23,6 +23,7 @@ services:
       - '3001:3001'
     volumes:
       - .:/usr/src/app
+<<<<<<< HEAD
   payments:
     build:
       context: .
@@ -35,6 +36,8 @@ services:
       - '3003:3003'
     volumes:
       - .:/usr/src/app
+=======
+>>>>>>> 496605149c52120febe49bba1acbfcb5c97b97c1
   mongo:
     image: mongo
   
