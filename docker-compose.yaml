@@ -23,7 +23,6 @@ services:
       - '3001:3001'
     volumes:
       - .:/usr/src/app
-<<<<<<< HEAD
   payments:
     build:
       context: .
@@ -32,12 +31,18 @@ services:
     command: npm run start:dev payments
     env_file:
       - ./apps/payments/.env
-    ports:
-      - '3003:3003'
     volumes:
       - .:/usr/src/app
-=======
->>>>>>> 496605149c52120febe49bba1acbfcb5c97b97c1
+  notifications:
+    build:
+      context: .
+      dockerfile: ./apps/notifications/Dockerfile
+      target: development
+    command: npm run start:dev notifications
+    env_file:
+      - ./apps/notifications/.env
+    volumes:
+      - .:/usr/src/app
   mongo:
     image: mongo
   

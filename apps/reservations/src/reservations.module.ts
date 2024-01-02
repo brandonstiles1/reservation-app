@@ -14,10 +14,6 @@ import {
   ReservationDocument,
   ReservationSchema,
 } from './models/reservation.schema';
-<<<<<<< HEAD
-=======
-import { ConfigModule } from '@nestjs/config';
->>>>>>> 496605149c52120febe49bba1acbfcb5c97b97c1
 import * as Joi from 'joi';
 
 @Module({
@@ -32,7 +28,6 @@ import * as Joi from 'joi';
       validationSchema: Joi.object({
         MONGODB_URI: Joi.string().required(),
         PORT: Joi.number().required(),
-<<<<<<< HEAD
         PAYMENTS_HOST: Joi.string().required(),
         AUTH_HOST: Joi.string().required(),
         PAYMENTS_PORT: Joi.string().required(),
@@ -63,10 +58,6 @@ import * as Joi from 'joi';
         inject: [ConfigService],
       },
     ]),
-=======
-      }),
-    }),
->>>>>>> 496605149c52120febe49bba1acbfcb5c97b97c1
   ],
   controllers: [ReservationsController],
   providers: [ReservationsService, ReservationsRepository],
